@@ -1,0 +1,4 @@
+{% autoescape off %} Hello {{ name }}!\n Thank you for signing up with Django
+Notes!\n Please confirm your email-address by clicking on the link below:\n
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}\n Thank you,\n
+Scott Crisp {% endautoescape %}
