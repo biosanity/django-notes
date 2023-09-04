@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href=""
+        <a class="navbar-item" href="/"
           ><span class="is-size-4 has-text-primary"
             ><strong>Django Notes</strong></span
           ></a
@@ -79,9 +79,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    {% endfor %} 
-    
-    {% block content %}{% endblock %}
+    {% endfor %} {% block content %}{% endblock %}
 
     <script>
       function removeMessage(buttonElement) {
