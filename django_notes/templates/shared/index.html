@@ -1,0 +1,18 @@
+{% extends 'shared/base.html' %}
+
+{% block content %} 
+
+{% if user.is_authenticated%}
+USER IS LOGGED IN 
+{% else %}
+<div
+  class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center"
+  style="height: 60vh"
+>
+  <h1 class="is-size-3 has-text-weight-bold">Welcome to Django Notes!</h1>
+  <h2 class="is-size-3 has-text-weight-bold">
+    Please log in or create an account.
+  </h2>
+</div>
+{% endif %}
+{% endblock %}

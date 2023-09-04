@@ -14,7 +14,8 @@ from django_notes import settings
 
 # Create your views here.
 def home(request):
-    return render(request, 'authentication/index.html')
+    firstname = request.session.get('firstname')  # Get the firstname from the session
+    return render(request, 'shared/index.html', {'firstname': firstname})
 
 def signup(request):
     if request.method == "POST":
@@ -57,7 +58,7 @@ def signup(request):
         current_site = get_current_site(request)
         subject = "Welcome to Django Notes!"
         to_list = [user.email]
-        message = render_to_string('confirmation_email.html', {
+        message = render_to_string('authentication/confirmation_email.html', {
             'name': user.first_name,
             'domain': current_site.domain,
             'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -67,8 +68,9 @@ def signup(request):
             subject,
             message,
             settings.EMAIL_HOST_USER,
-            to_list
+            to_list,
         )
+        email.content_subtype = 'html'
         email.fail_silently = True
         email.send()
         
@@ -85,12 +87,8 @@ def signin(request):
         
         if user is not None:
             login(request, user)
-            firstname = user.first_name
-            return render(
-                request, 
-                'authentication/index.html', 
-                {'firstname': firstname}
-            )
+            request.session['firstname'] = user.first_name
+            return redirect('home')
         else:
             messages.error(request, "Invalid Credentials")
             return redirect('home')

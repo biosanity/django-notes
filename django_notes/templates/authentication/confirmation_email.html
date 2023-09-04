@@ -1,0 +1,11 @@
+{% autoescape off %}
+Hello {{ name }}!<br>
+<br>
+Thank you for signing up with Django Notes!<br>
+<br>
+Please confirm your email-address by clicking 
+<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">here.</a>
+<br>
+Thank you,<br>
+Scott Crisp
+{% endautoescape %}
