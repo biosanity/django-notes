@@ -1,8 +1,10 @@
-{% extends 'shared/base.html' %} {% block content %}
+{% extends 'shared/base.html' %} 
+
+{% block content %}
 
 <div
   class="is-flex is-justify-content-center is-align-items-center"
-  style="height: 60vh"
+  style="height: 70vh"
 >
   <form class="box" action="/signin" method="post" style="width: 50vw">
     {% csrf_token %}
@@ -31,7 +33,7 @@
       <p class="is-size-7 mt-1"><a href="*">Forgot password?</a></p>
     </div>
 
-    <button type="submit" class="button is-primary is-pulled-right">
+    <button type="submit" class="button is-primary is-pulled-right mt-1">
       Sign in
     </button>
   </form>
