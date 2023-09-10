@@ -10,38 +10,27 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
   </head>
-  <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/"
-          ><span class="is-size-4 has-text-primary"
-            ><strong>Django Notes</strong></span
-          ></a
-        >
 
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+  <body style="height: 100vh">
+    <nav class="navbar pl-5 pr-5" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <span class="is-size-4 has-text-primary">
+            <strong>Django Notes</strong>
+          </span>
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-menu">
         {% if user.is_authenticated %}
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-menu">
           <div class="navbar-end">
             <div class="navbar-item">
               <h4>
-                <strong class="mr-2">Hello, {{ firstname.capitalize }}</strong>
+                <strong class="mr-2">Hello, {{ user.first_name.capitalize }}</strong>
               </h4>
               <div class="buttons">
-                <a class="button is-light" href="/signout">
+                <a class="button is-light" href="/auth/signout">
                   <strong>Sign out</strong>
                 </a>
               </div>
@@ -53,8 +42,8 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary" href="/signup">Sign up</a>
-              <a class="button is-light" href="/signin">Log in</a>
+              <a class="button is-primary" href="/auth/signup">Sign up</a>
+              <a class="button is-light" href="/auth/signin">Log in</a>
             </div>
           </div>
         </div>
@@ -64,11 +53,11 @@
 
     {% for message in messages %}
     <div
-      style="position: absolute; left: 0; right: 0"
+      style="position: absolute; left: 0; right: 0; z-index: 999"
       class="m-5 notification is-info is-light alert-{{ message.tags }}"
       role="alert"
     >
-      <strong>Message: {{ message }}</strong>
+      <strong>{{ message }}</strong>
       <button
         type="button"
         class="delete"

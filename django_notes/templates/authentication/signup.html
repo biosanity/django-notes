@@ -1,45 +1,11 @@
 {% extends 'shared/base.html' %} 
 
 {% block content %}
-
-    {% comment %} <form action="/signup" method="post">
-      {% csrf_token %}
-
-      <label>Username</label>
-      <input type="text" id="username" name="username" placeholder="Username" />
-      </br>
-
-      <label>First Name</label>
-      <input type="text" name="firstname" placeholder="First Name" />
-      </br>
-
-      <label>Last Name</label>
-      <input type="text" name="lastname" placeholder="Last Name" />
-      </br>
-
-      <label>Email Address</label>
-      <input type="email" name="email" placeholder="Email Address" />
-      </br>
-
-      <label>Password</label>
-      <input type="password" name="password" placeholder="Password" />
-      </br>
-      
-      <label>Verify Password</label>
-      <input
-        type="password"
-        name="verifypassword"
-        placeholder="Verify Password"
-      />
-
-      <button type="submit">Sign Up</button>
-    </form> {% endcomment %}
-
 <div
   class="is-flex is-justify-content-center is-align-items-center"
   style="height: 70vh"
 >
-  <form class="box" action="/signup" method="post" style="width: 50vw">
+  <form class="box" action="/auth/signup/" method="post" style="width: 50vw">
     {% csrf_token %}
 
     <div class="field">
@@ -73,14 +39,14 @@
     <div class="field">
       <label class="label">Password</label>
       <div class="control">
-        <input class="input" type="password" name="password" placeholder="********"/>
+        <input class="input" type="password" name="password1" placeholder="********"/>
       </div>
     </div>
 
     <div class="field">
       <label class="label">Password</label>
       <div class="control">
-        <input class="input" type="password" name="verifypassword" placeholder="********"/>
+        <input class="input" type="password" name="password2" placeholder="********"/>
       </div>
     </div>
 
