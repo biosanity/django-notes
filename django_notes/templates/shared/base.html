@@ -21,9 +21,7 @@
         </a>
       </div>
 
-      <div class="navbar-menu">
         {% if user.is_authenticated %}
-        <div class="navbar-menu">
           <div class="navbar-end">
             <div class="navbar-item">
               <h4>
@@ -36,7 +34,6 @@
               </div>
             </div>
           </div>
-        </div>
 
         {% else %}
         <div class="navbar-end">
@@ -48,7 +45,6 @@
           </div>
         </div>
         {% endif %}
-      </div>
     </nav>
 
     {% for message in messages %}

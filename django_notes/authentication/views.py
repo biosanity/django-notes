@@ -90,7 +90,7 @@ def signin(request):
             return redirect('home')
         else:
             messages.error(request, "Invalid Credentials")
-            return redirect('home')
+            return redirect('signin')
             
     return render(request, "authentication/signin.html")
 
